@@ -108,6 +108,9 @@ public final class Bartinter: UIViewController {
             } else if avgLuminance >= strongSelf.configuration.midPoint + antiFlick {
                 strongSelf.statusBarStyle = .default
             }
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: Notification.Name("statusBarStyleChanged"), object: nil)
+            }
         }
     }
 
